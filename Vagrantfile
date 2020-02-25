@@ -29,11 +29,12 @@ Vagrant.configure("2") do |config|
   config.vm.hostname = "jenkins.local.dev"
 
   config.vm.network :private_network, ip: "192.168.77.101"
-  config.vm.network :forwarded_port, guest: 80, host: 8088
+  config.vm.network :forwarded_port, guest: 8080, host: 8088
 
   config.vm.provider "virtualbox" do |vb|
+    vb.gui = false
     vb.name = "Jenkins Server"
-    vb.memory = "2048"
+    vb.memory = "4096"
     vb.cpus = "2"
   end
 
